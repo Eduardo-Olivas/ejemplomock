@@ -24,8 +24,8 @@ import org.springframework.test.web.servlet.MvcResult;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.principal.controller.UserController;
+import com.principal.impl.UserServiceImpl;
 import com.principal.model.User;
-import com.principal.service.UserServiceImpl;
 
 @WebMvcTest(UserController.class)
 @ComponentScan(basePackages = "com.principal")

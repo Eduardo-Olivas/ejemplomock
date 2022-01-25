@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.principal.dto.UserReqDTO;
-import com.principal.impl.UserServiceImpl;
-import com.principal.model.User;
+import com.principal.dto.TemaReqDTO;
+import com.principal.impl.TemaServiceImpl;
+import com.principal.model.Tema;
 
 @RestController
-@RequestMapping("/api/users")
-public class UserController {
+@RequestMapping("/api/temas")
+public class TemaController {
 	
 	@Autowired
-	UserServiceImpl srv;
+	TemaServiceImpl srv;
 	@Autowired
 	ModelMapper mmap;
 	
@@ -38,8 +38,8 @@ public class UserController {
 	}
 	
 	@PostMapping
-	public CompletableFuture<ResponseEntity> save(@RequestBody UserReqDTO usr ){
-		return srv.save(mmap.map( usr, User.class )).thenApply(ResponseEntity::ok);
+	public CompletableFuture<ResponseEntity> save(@RequestBody TemaReqDTO usr ){
+		return srv.save(mmap.map( usr, Tema.class )).thenApply(ResponseEntity::ok);
 	}
 	
 	@DeleteMapping("{id}")
@@ -50,9 +50,9 @@ public class UserController {
 	@PutMapping("{id}")
 	public CompletableFuture<ResponseEntity> update(
 			@PathVariable("id") Long id,
-			@RequestBody UserReqDTO usr 
+			@RequestBody TemaReqDTO usr 
 			){
-		return srv.update(id, mmap.map( usr, User.class ) ).thenApply( ResponseEntity::ok );
+		return srv.update(id, mmap.map( usr, Tema.class ) ).thenApply( ResponseEntity::ok );
 		
 	}
 	
