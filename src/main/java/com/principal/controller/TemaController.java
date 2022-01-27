@@ -38,8 +38,8 @@ public class TemaController {
 	}
 	
 	@PostMapping
-	public CompletableFuture<ResponseEntity> save(@RequestBody TemaReqDTO usr ){
-		return srv.save(mmap.map( usr, Tema.class )).thenApply(ResponseEntity::ok);
+	public CompletableFuture<ResponseEntity> save(@RequestBody TemaReqDTO tema ){
+		return srv.save(mmap.map( tema, Tema.class )).thenApply(ResponseEntity::ok);
 	}
 	
 	@DeleteMapping("{id}")
@@ -50,9 +50,9 @@ public class TemaController {
 	@PutMapping("{id}")
 	public CompletableFuture<ResponseEntity> update(
 			@PathVariable("id") Long id,
-			@RequestBody TemaReqDTO usr 
+			@RequestBody TemaReqDTO tema 
 			){
-		return srv.update(id, mmap.map( usr, Tema.class ) ).thenApply( ResponseEntity::ok );
+		return srv.update(id, mmap.map( tema, Tema.class ) ).thenApply( ResponseEntity::ok );
 		
 	}
 	
